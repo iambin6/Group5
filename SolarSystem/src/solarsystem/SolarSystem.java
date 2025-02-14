@@ -377,31 +377,26 @@ abstract class Menu<T> {
     public void setChoices(ArrayList<T> choices) {
         this.choices = choices;
     }
-//----------------------------------------------------
     public void display(){
         System.out.println("=============== "+title+" ===============");
         for(int i=0; i<choices.size();i++){
             System.out.println((i+1)+". "+choices.get(i));
         }
     }
-//----------------------------------------------------
     public int getSelected(){
         display();
         Scanner sc= new Scanner(System.in);
         System.out.print("Enter your choice: ");
         return sc.nextInt();
     }    
-//----------------------------------------------------
     public abstract void execute(int ch);
-//----------------------------------------------------
     public void run(){
         while(true){
             int ch=getSelected();
             if(ch<=choices.size()) execute(ch);
             else break;
         }
-    }    
-//----------------------------------------------------    
+    }      
 }
 
 class MainMenu extends Menu {
@@ -580,7 +575,7 @@ class SolarSystemView {
         if(a != null){
             System.out.println(a);
         }else {
-            System.err.println("Don't find !!!");
+            System.err.println("Don't find !!");
         }
         System.err.flush();
     }
